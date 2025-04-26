@@ -1,0 +1,12 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ss-green" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2e7d32"/>
+      <stop offset="1" stop-color="#43a047"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="none"/>
+  <text x="18" y="80" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="url(#ss-green)">S</text>
+  <text x="60" y="80" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="url(#ss-green)" opacity="0.85">S</text>
+  <text x="48" y="70" font-family="Montserrat, Arial, sans-serif" font-size="32" font-weight="bold" fill="#ff9500">&amp;</text>
+</svg> 
