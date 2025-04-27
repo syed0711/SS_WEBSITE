@@ -14,6 +14,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [errorFields, setErrorFields] = useState<string[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,6 +25,19 @@ export default function Contact() {
     setLoading(true);
     setSuccess(null);
     setError(null);
+    setErrorFields([]);
+    // Custom validation for required fields
+    const missingFields = [];
+    if (!form.firstName.trim()) missingFields.push('firstName');
+    if (!form.lastName.trim()) missingFields.push('lastName');
+    if (!form.email.trim()) missingFields.push('email');
+    if (!form.phone.trim()) missingFields.push('phone');
+    if (missingFields.length > 0) {
+      setError('Please fill in all required fields: First Name, Last Name, Email, and Phone.');
+      setErrorFields(missingFields);
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',
@@ -111,7 +125,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                    First name
+                    First name <span className="text-red-500">*</span>
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -121,8 +135,7 @@ export default function Contact() {
                       autoComplete="given-name"
                       value={form.firstName}
                       onChange={handleChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
-                      required
+                      className={`block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6 ${errorFields.includes('firstName') ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'}`}
                     />
                   </div>
                 </div>
@@ -138,14 +151,13 @@ export default function Contact() {
                       autoComplete="family-name"
                       value={form.lastName}
                       onChange={handleChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
-                      required
+                      className={`block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6 ${errorFields.includes('lastName') ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'}`}
                     />
                   </div>
                 </div>
                 <div className="sm:col-span-2">
                   <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -155,14 +167,13 @@ export default function Contact() {
                       autoComplete="email"
                       value={form.email}
                       onChange={handleChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
-                      required
+                      className={`block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6 ${errorFields.includes('email') ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'}`}
                     />
                   </div>
                 </div>
                 <div className="sm:col-span-2">
                   <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-                    Phone number
+                    Phone number <span className="text-red-500">*</span>
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -172,7 +183,7 @@ export default function Contact() {
                       autoComplete="tel"
                       value={form.phone}
                       onChange={handleChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
+                      className={`block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6 ${errorFields.includes('phone') ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'}`}
                     />
                   </div>
                 </div>
@@ -202,7 +213,13 @@ export default function Contact() {
                   {loading ? 'Sending...' : 'Send message'}
                 </button>
                 {success && <div className="text-green-600 text-sm font-semibold">{success}</div>}
-                {error && <div className="text-red-600 text-sm font-semibold">{error}</div>}
+                {error && (
+                  <div className="w-full flex justify-end">
+                    <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-2 rounded-lg shadow-sm mt-2 text-center text-base animate-fade-in">
+                      {error}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </form>

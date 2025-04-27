@@ -104,6 +104,7 @@ export default function QuoteCart() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [errorFields, setErrorFields] = useState<string[]>([])
   const categoryDropdownRef = useRef<HTMLDivElement>(null)
   const productDropdownRef = useRef<HTMLDivElement>(null)
 
@@ -184,19 +185,25 @@ export default function QuoteCart() {
       return
     }
 
-    if (!formData.name || !formData.email || !formData.useType) {
-      alert('Please fill in all required fields.')
-      return
-    }
-
+    // Custom validation for required fields
+    const missingFields = []
+    if (!formData.name.trim()) missingFields.push('name')
+    if (!formData.email.trim()) missingFields.push('email')
+    if (!formData.phone.trim()) missingFields.push('phone')
+    if (!formData.useType) missingFields.push('useType')
     if (formData.useType === 'business' && (!formData.companyName || !formData.companyEmail)) {
-      alert('Please fill in all business information.')
+      if (!formData.companyName) missingFields.push('companyName')
+      if (!formData.companyEmail) missingFields.push('companyEmail')
+    }
+    if (missingFields.length > 0) {
+      setError('Please fill in all required fields: Name, Email, Phone, and Purpose.')
+      setErrorFields(missingFields)
       return
     }
-
     setLoading(true)
     setSuccess(null)
     setError(null)
+    setErrorFields([])
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',
@@ -251,7 +258,7 @@ export default function QuoteCart() {
                 value={formData.name}
                 onChange={handleFormChange}
                 placeholder="Enter your full name"
-                className="w-full h-12 px-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-green-500 transition-colors hover:border-green-500"
+                className={`w-full h-12 px-4 border-2 rounded-lg focus:outline-none focus:ring-0 transition-colors ${errorFields.includes('name') ? 'border-red-500' : 'border-gray-200 hover:border-green-500'} ${errorFields.includes('name') ? 'ring-2 ring-red-200' : ''}`}
                 required
               />
             </div>
@@ -266,14 +273,14 @@ export default function QuoteCart() {
                 value={formData.email}
                 onChange={handleFormChange}
                 placeholder="example@email.com"
-                className="w-full h-12 px-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-green-500 transition-colors hover:border-green-500"
+                className={`w-full h-12 px-4 border-2 rounded-lg focus:outline-none focus:ring-0 transition-colors ${errorFields.includes('email') ? 'border-red-500' : 'border-gray-200 hover:border-green-500'} ${errorFields.includes('email') ? 'ring-2 ring-red-200' : ''}`}
                 required
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number
+                Phone Number <span className="text-red-500">*</span>
               </label>
               <input
                 type="tel"
@@ -281,7 +288,8 @@ export default function QuoteCart() {
                 value={formData.phone}
                 onChange={handleFormChange}
                 placeholder="+1 (123) 456-7890"
-                className="w-full h-12 px-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-green-500 transition-colors hover:border-green-500"
+                className={`w-full h-12 px-4 border-2 rounded-lg focus:outline-none focus:ring-0 transition-colors ${errorFields.includes('phone') ? 'border-red-500' : 'border-gray-200 hover:border-green-500'} ${errorFields.includes('phone') ? 'ring-2 ring-red-200' : ''}`}
+                required
               />
             </div>
 
@@ -296,7 +304,7 @@ export default function QuoteCart() {
                   className={`h-12 flex items-center justify-center gap-2 border-2 rounded-lg transition-colors ${
                     formData.useType === 'personal'
                       ? 'border-green-500 bg-green-50 text-green-700'
-                      : 'border-gray-200 hover:border-green-500 text-gray-700'
+                      : errorFields.includes('useType') ? 'border-red-500 text-red-700' : 'border-gray-200 hover:border-green-500 text-gray-700'
                   }`}
                 >
                   <UserIcon className="w-5 h-5" />
@@ -308,7 +316,7 @@ export default function QuoteCart() {
                   className={`h-12 flex items-center justify-center gap-2 border-2 rounded-lg transition-colors ${
                     formData.useType === 'business'
                       ? 'border-green-500 bg-green-50 text-green-700'
-                      : 'border-gray-200 hover:border-green-500 text-gray-700'
+                      : errorFields.includes('useType') ? 'border-red-500 text-red-700' : 'border-gray-200 hover:border-green-500 text-gray-700'
                   }`}
                 >
                   <BuildingOfficeIcon className="w-5 h-5" />
@@ -330,7 +338,7 @@ export default function QuoteCart() {
                   value={formData.companyName || ''}
                   onChange={handleFormChange}
                   placeholder="Enter your company name"
-                  className="w-full h-12 px-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-green-500 transition-colors hover:border-green-500"
+                  className={`w-full h-12 px-4 border-2 rounded-lg focus:outline-none focus:ring-0 transition-colors ${errorFields.includes('companyName') ? 'border-red-500' : 'border-gray-200 hover:border-green-500'} ${errorFields.includes('companyName') ? 'ring-2 ring-red-200' : ''}`}
                   required
                 />
               </div>
@@ -345,7 +353,7 @@ export default function QuoteCart() {
                   value={formData.companyEmail || ''}
                   onChange={handleFormChange}
                   placeholder="company@example.com"
-                  className="w-full h-12 px-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-0 focus:border-green-500 transition-colors hover:border-green-500"
+                  className={`w-full h-12 px-4 border-2 rounded-lg focus:outline-none focus:ring-0 transition-colors ${errorFields.includes('companyEmail') ? 'border-red-500' : 'border-gray-200 hover:border-green-500'} ${errorFields.includes('companyEmail') ? 'ring-2 ring-red-200' : ''}`}
                   required
                 />
               </div>
@@ -574,7 +582,13 @@ export default function QuoteCart() {
             </div>
           )}
           {success && <div className="text-green-600 text-center font-semibold mt-2">{success}</div>}
-          {error && <div className="text-red-600 text-center font-semibold mt-2">{error}</div>}
+          {error && (
+            <div className="w-full flex justify-end">
+              <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-2 rounded-lg shadow-sm mt-2 text-center text-base animate-fade-in">
+                {error}
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </div>
