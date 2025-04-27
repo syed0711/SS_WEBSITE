@@ -18,6 +18,9 @@ export default function ConsultationModal({ open, onClose }: { open: boolean; on
     mode: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   if (!open) return null;
 
@@ -25,11 +28,42 @@ export default function ConsultationModal({ open, onClose }: { open: boolean; on
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: Integrate with backend or email service
-    alert('Consultation booked! (Demo)');
-    onClose();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, formType: 'Book Consultation' }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSuccess('Consultation booked! We will contact you soon.');
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          date: '',
+          time: '',
+          mode: '',
+          message: '',
+        });
+        setTimeout(() => {
+          setSuccess(null);
+          onClose();
+        }, 2000);
+      } else {
+        setError('Failed to book consultation. Please try again.');
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
@@ -93,7 +127,11 @@ export default function ConsultationModal({ open, onClose }: { open: boolean; on
               <textarea name="message" value={form.message} onChange={handleChange} className="mt-1 block w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-lg shadow-sm focus:border-[#2e7d32] focus:ring-[#2e7d32] transition text-gray-900" rows={2} />
             </div>
           </div>
-          <button type="submit" className="w-full bg-[#2e7d32] text-white font-bold text-lg py-3 rounded-xl shadow-md hover:bg-[#219150] transition">Book Consultation</button>
+          <button type="submit" className="w-full bg-[#2e7d32] text-white font-bold text-lg py-3 rounded-xl shadow-md hover:bg-[#219150] transition" disabled={loading}>
+            {loading ? 'Booking...' : 'Book Consultation'}
+          </button>
+          {success && <div className="text-green-600 text-center font-semibold mt-2">{success}</div>}
+          {error && <div className="text-red-600 text-center font-semibold mt-2">{error}</div>}
         </form>
       </div>
     </div>
