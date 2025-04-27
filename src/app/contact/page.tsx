@@ -1,7 +1,52 @@
 import Navbar from '@/components/layout/Navbar'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          name: form.firstName + ' ' + form.lastName,
+          formType: 'Contact Us',
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSuccess('Message sent! We will contact you soon.');
+        setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -60,7 +105,7 @@ export default function Contact() {
               </dl>
             </div>
           </div>
-          <form action="#" method="POST" className="px-6 pb-10 pt-10 sm:pb-16 lg:px-8 lg:py-20">
+          <form onSubmit={handleSubmit} className="px-6 pb-10 pt-10 sm:pb-16 lg:px-8 lg:py-20">
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
               <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
@@ -70,10 +115,13 @@ export default function Contact() {
                   <div className="mt-2.5">
                     <input
                       type="text"
-                      name="first-name"
+                      name="firstName"
                       id="first-name"
                       autoComplete="given-name"
+                      value={form.firstName}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
+                      required
                     />
                   </div>
                 </div>
@@ -84,10 +132,13 @@ export default function Contact() {
                   <div className="mt-2.5">
                     <input
                       type="text"
-                      name="last-name"
+                      name="lastName"
                       id="last-name"
                       autoComplete="family-name"
+                      value={form.lastName}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
+                      required
                     />
                   </div>
                 </div>
@@ -101,7 +152,10 @@ export default function Contact() {
                       name="email"
                       id="email"
                       autoComplete="email"
+                      value={form.email}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
+                      required
                     />
                   </div>
                 </div>
@@ -112,9 +166,11 @@ export default function Contact() {
                   <div className="mt-2.5">
                     <input
                       type="tel"
-                      name="phone-number"
+                      name="phone"
                       id="phone-number"
                       autoComplete="tel"
+                      value={form.phone}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -128,19 +184,24 @@ export default function Contact() {
                       name="message"
                       id="message"
                       rows={4}
+                      value={form.message}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2e7d32] sm:text-sm sm:leading-6"
-                      defaultValue={''}
+                      required
                     />
                   </div>
                 </div>
               </div>
-              <div className="mt-8 flex justify-end">
+              <div className="mt-8 flex flex-col items-end gap-2">
                 <button
                   type="submit"
                   className="rounded-md bg-[#2e7d32] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1b5e20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
+                  disabled={loading}
                 >
-                  Send message
+                  {loading ? 'Sending...' : 'Send message'}
                 </button>
+                {success && <div className="text-green-600 text-sm font-semibold">{success}</div>}
+                {error && <div className="text-red-600 text-sm font-semibold">{error}</div>}
               </div>
             </div>
           </form>

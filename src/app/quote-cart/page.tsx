@@ -101,6 +101,9 @@ export default function QuoteCart() {
     useType: '',
     message: ''
   })
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const categoryDropdownRef = useRef<HTMLDivElement>(null)
   const productDropdownRef = useRef<HTMLDivElement>(null)
 
@@ -175,7 +178,7 @@ export default function QuoteCart() {
     }))
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (cartItems.length === 0) {
       alert('Please add items to your cart before requesting a quote.')
       return
@@ -191,17 +194,38 @@ export default function QuoteCart() {
       return
     }
 
-    // Here you would typically send the data to your backend
-    console.log('Quote Request:', { items: cartItems, customerInfo: formData })
-    alert('Your quote request has been submitted!')
-    setCartItems([])
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      useType: '',
-      message: ''
-    })
+    setLoading(true)
+    setSuccess(null)
+    setError(null)
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          cartItems,
+          formType: 'Quote Request',
+        }),
+      })
+      const result = await res.json()
+      if (result.success) {
+        setSuccess('Your quote request has been submitted!')
+        setCartItems([])
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          useType: '',
+          message: ''
+        })
+      } else {
+        setError('Failed to submit quote request. Please try again.')
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -542,12 +566,15 @@ export default function QuoteCart() {
                 <button
                   onClick={handleSubmit}
                   className="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
+                  disabled={loading}
                 >
-                  Request Quote
+                  {loading ? 'Requesting...' : 'Request Quote'}
                 </button>
               </div>
             </div>
           )}
+          {success && <div className="text-green-600 text-center font-semibold mt-2">{success}</div>}
+          {error && <div className="text-red-600 text-center font-semibold mt-2">{error}</div>}
         </div>
       </main>
     </div>
