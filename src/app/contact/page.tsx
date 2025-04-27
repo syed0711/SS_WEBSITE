@@ -1,3 +1,4 @@
+"use client";
 import Navbar from '@/components/layout/Navbar'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
