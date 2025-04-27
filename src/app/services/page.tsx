@@ -1,6 +1,10 @@
+"use client";
+
 import Navbar from '@/components/layout/Navbar'
 import Link from 'next/link'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react'
+import ConsultationModal from '@/components/ConsultationModal'
 
 const services = [
   {
@@ -54,9 +58,12 @@ const services = [
 ]
 
 export default function Services() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <div>
       <Navbar />
+      <ConsultationModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="bg-white py-6 sm:py-8">
         <div className="w-full px-4">
           <div className="mx-auto max-w-2xl sm:text-center">
@@ -93,12 +100,12 @@ export default function Services() {
                     <span className="text-5xl font-bold tracking-tight text-gray-900">10+</span>
                     <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">years experience</span>
                   </p>
-                  <Link
-                    href="/contact"
+                  <button
+                    onClick={() => setModalOpen(true)}
                     className="mt-10 block w-full rounded-md bg-[#2e7d32] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1b5e20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
                   >
                     Book a Consultation
-                  </Link>
+                  </button>
                   <p className="mt-6 text-xs leading-5 text-gray-600">
                     Professional consultation to understand your needs
                   </p>
@@ -122,7 +129,7 @@ export default function Services() {
                   </ul>
                   <Link
                     href={service.href}
-                    className="mt-8 block w-full rounded-md bg-[#ff9500] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#ff8b00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff9500]"
+                    className="mt-8 block w-full rounded-md bg-[#2e7d32] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#256325] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
                   >
                     Learn More
                   </Link>

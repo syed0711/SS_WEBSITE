@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="bg-[#eafff3]">
+      <header className="bg-white">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-3">
@@ -43,7 +43,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900 hover:text-[#2e7d32]"
+                className="text-base font-bold leading-7 text-gray-900 hover:text-[#2e7d32]"
               >
                 {item.name}
               </Link>
@@ -105,7 +105,6 @@ export default function Navbar() {
           </Dialog.Panel>
         </Dialog>
       </header>
-      <div style={{ height: '1cm', background: 'white' }} />
     </>
   )
 } 
