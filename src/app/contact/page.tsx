@@ -86,7 +86,7 @@ export default function Contact() {
                   <dd>
                     S & S AGENCIES
                     <br />
-                    No.5/19, New Thillai Nager
+                    No.5/19, New Thillai Nagar
                     <br />
                     3rd Cross West, Vadavalli
                     <br />
