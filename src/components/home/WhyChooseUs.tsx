@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { CheckCircleIcon, GlobeAltIcon, UserGroupIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
 const features = [
@@ -23,7 +24,7 @@ const features = [
   },
 ]
 
-export default function WhyChooseUs() {
+function WhyChooseUs() {
   return (
     <section className="py-10 bg-white">
       <div className="w-full px-4 text-center">
@@ -40,4 +41,7 @@ export default function WhyChooseUs() {
       </div>
     </section>
   )
-} 
+}
+
+export default memo(WhyChooseUs)
+

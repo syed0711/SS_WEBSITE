@@ -37,7 +37,9 @@ const testimonials = [
   },
 ]
 
-export default function Testimonials() {
+import { memo } from 'react'
+
+function Testimonials() {
   return (
     <section className="py-16 bg-green-50">
       <div className="w-full px-4">
@@ -59,4 +61,6 @@ export default function Testimonials() {
       </div>
     </section>
   )
-} 
+}
+
+export default memo(Testimonials)
