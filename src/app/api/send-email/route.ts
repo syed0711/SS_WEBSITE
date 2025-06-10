@@ -2,10 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
-  // Debug: Print environment variables
-  console.log('GMAIL_USER:', process.env.GMAIL_USER);
-  console.log('GMAIL_APP_PASS:', process.env.GMAIL_APP_PASS ? '***' : undefined);
-  console.log('RECEIVER:', process.env.RECEIVER);
   try {
     const body = await req.json();
     const { name, email, message, formType, ...rest } = body;
