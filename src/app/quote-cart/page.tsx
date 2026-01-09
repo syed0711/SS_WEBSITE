@@ -240,7 +240,7 @@ export default function QuoteCart() {
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-2">Quote Cart</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-2">Get Quotation</h1>
           <p className="text-lg text-gray-600">Select products and request a custom quote for your needs.</p>
         </div>
 

@@ -25,7 +25,7 @@ export default function Hero() {
             </span>
             <span className="inline-flex items-center gap-2 rounded-full bg-[#ff9500]/10 px-3 py-1 text-sm font-semibold text-[#ff9500] ring-1 ring-inset ring-[#ff9500]/10">
               <ShieldCheckIcon className="h-5 w-5 text-[#ff9500]" />
-              ISO Certified
+              MSME Certified
             </span>
           </div>
           {/* Headline */}
@@ -42,7 +42,7 @@ export default function Hero() {
               href="/products"
               className="rounded-xl bg-gradient-to-r from-[#2e7d32] to-[#43a047] px-6 py-3 text-lg font-bold text-white shadow-lg hover:scale-105 hover:from-[#219150] hover:to-[#2e7d32] transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
             >
-              Browse Products
+              Our Products
             </Link>
             <Link
               href="/services"

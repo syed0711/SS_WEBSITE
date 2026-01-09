@@ -8,7 +8,7 @@ const features = [
     icon: CheckCircleIcon,
   },
   {
-    name: 'ISO Certified',
+    name: 'MSME Certified',
     description: 'Quality and reliability you can trust, certified to global standards.',
     icon: ShieldCheckIcon,
   },

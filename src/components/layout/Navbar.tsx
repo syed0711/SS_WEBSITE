@@ -9,7 +9,6 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Products', href: '/products' },
   { name: 'Services', href: '/services' },
-  { name: 'Resources', href: '/resources' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]
@@ -55,7 +54,7 @@ export default function Navbar() {
               className="ml-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#ffb300] to-[#ff9500] px-5 py-2 text-lg font-extrabold text-white shadow-lg hover:from-[#ff9500] hover:to-[#ffb300] transition-all duration-200 border-2 border-[#ff9500]"
               style={{ letterSpacing: '0.03em' }}
             >
-              <span style={{ textShadow: '0 2px 8px rgba(255,149,0,0.15)' }}>Quote Cart</span>
+              <span style={{ textShadow: '0 2px 8px rgba(255,149,0,0.15)' }}>Get Quotation</span>
               <span aria-hidden="true" className="text-2xl">&rarr;</span>
             </Link>
           </div>
@@ -97,7 +96,7 @@ export default function Navbar() {
                     className="block w-full rounded-lg bg-gradient-to-r from-[#ffb300] to-[#ff9500] px-4 py-3 text-lg font-extrabold text-white shadow-lg hover:from-[#ff9500] hover:to-[#ffb300] transition-all duration-200 border-2 border-[#ff9500] text-center mt-2"
                     style={{ letterSpacing: '0.03em' }}
                   >
-                    <span style={{ textShadow: '0 2px 8px rgba(255,149,0,0.15)' }}>Quote Cart &rarr;</span>
+                    <span style={{ textShadow: '0 2px 8px rgba(255,149,0,0.15)' }}>Get Quotation &rarr;</span>
                   </Link>
                 </div>
               </div>

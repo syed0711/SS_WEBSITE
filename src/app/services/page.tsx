@@ -55,6 +55,78 @@ const services = [
       'Yield optimization',
     ],
   },
+  {
+    name: 'Green House',
+    id: 'greenhouse',
+    href: '/services/green-house',
+    description: 'Professional greenhouse construction and setup services',
+    features: [
+      'Custom greenhouse design',
+      'Ventilation systems',
+      'Temperature control',
+      'Complete installation',
+    ],
+  },
+  {
+    name: 'Mist Chamber',
+    id: 'mistchamber',
+    href: '/services/mist-chamber',
+    description: 'Specialized mist chamber setup for plant propagation',
+    features: [
+      'Chamber construction',
+      'Misting system installation',
+      'Humidity control',
+      'Maintenance support',
+    ],
+  },
+  {
+    name: 'Shade Net House',
+    id: 'shadenethouse',
+    href: '/services/shade-net-house',
+    description: 'Complete shade net house construction for protected cultivation',
+    features: [
+      'Structure design & setup',
+      'Shade net installation',
+      'Ventilation planning',
+      'Drip irrigation integration',
+    ],
+  },
+  {
+    name: 'Solar Dryer',
+    id: 'solardryer',
+    href: '/services/solar-dryer',
+    description: 'Eco-friendly solar drying systems for agricultural products',
+    features: [
+      'Custom dryer design',
+      'Solar panel installation',
+      'Temperature monitoring',
+      'Energy efficient operation',
+    ],
+  },
+  {
+    name: 'Fully Automated Hi-tech Cultivation Setup',
+    id: 'hitechcultivation',
+    href: '/services/fully-automated-hitech-cultivation',
+    description: 'Advanced automated cultivation systems with smart technology',
+    features: [
+      'Complete automation setup',
+      'Smart sensors & controls',
+      'Remote monitoring system',
+      'Data analytics & reporting',
+    ],
+  },
+  {
+    name: 'Poly-Carbonate Solar Dryer',
+    id: 'polycarbonatedryer',
+    href: '/services/poly-carbonate-solar-dryer',
+    description: 'Premium poly-carbonate solar dryers for efficient drying',
+    features: [
+      'Poly-carbonate construction',
+      'Enhanced heat retention',
+      'UV protection',
+      'Weather resistant design',
+    ],
+  },
 ]
 
 export default function Services() {
