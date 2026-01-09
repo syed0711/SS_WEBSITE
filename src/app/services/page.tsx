@@ -124,15 +124,9 @@ export default function Services() {
     <div>
       <Navbar />
       <ConsultationModal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <div className="bg-white py-6 sm:py-8">
-        <div className="w-full px-8 py-8 overflow-visible">
-          <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Agricultural Services</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Comprehensive agricultural solutions from experts with 10+ years of experience in protected cultivation
-            </p>
-          </div>
-          <div className="mx-auto mt-8 mb-8 max-w-full rounded-3xl ring-1 ring-gray-200 shadow-[0_0_30px_-3px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_-3px_rgba(0,0,0,0.2)] transition-shadow duration-300 sm:mt-10 lg:mx-0 lg:flex lg:max-w-none bg-white isolate">
+      <div className="bg-white py-8">
+        <div className="w-full px-8 overflow-visible">
+          <div className="mx-auto max-w-full rounded-3xl ring-1 ring-gray-200 shadow-[0_0_30px_-3px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_-3px_rgba(0,0,0,0.2)] transition-shadow duration-300 lg:mx-0 lg:flex lg:max-w-none bg-white isolate">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900">Professional Services</h3>
               <p className="mt-6 text-base leading-7 text-gray-600">
@@ -174,7 +168,7 @@ export default function Services() {
             </div>
           </div>
           <div className="mx-auto mt-8 max-w-7xl">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <div key={service.id} className="relative p-8 bg-white rounded-2xl shadow-sm ring-1 ring-gray-200">
                   <h3 className="text-xl font-semibold text-gray-900">{service.name}</h3>
