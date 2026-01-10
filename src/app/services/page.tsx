@@ -146,9 +146,9 @@ export default function Services() {
                 ))}
               </ul>
             </div>
-            <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0 lg:flex">
+            <div className="-mt-2 p-2 lg:mt-0 lg:flex-shrink-0 lg:flex lg:flex-[0_0_40%]">
               <div className="rounded-2xl bg-gray-50 py-8 text-center ring-1 ring-inset ring-gray-900/5 h-full flex flex-col justify-center lg:py-10">
-                <div className="mx-auto max-w-xs px-8">
+                <div className="mx-auto px-4 sm:px-8 lg:px-28">
                   <p className="text-base font-semibold text-gray-600">Get Started Today</p>
                   <p className="mt-6 flex items-baseline justify-center gap-x-2">
                     <span className="text-5xl font-bold tracking-tight text-gray-900">10+</span>
