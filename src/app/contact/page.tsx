@@ -1,6 +1,6 @@
 "use client";
 import Navbar from '@/components/layout/Navbar'
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 
 export default function Contact() {
@@ -118,6 +118,34 @@ export default function Contact() {
                   </dd>
                 </div>
               </dl>
+              {/* Map Section */}
+              <div className="mt-6">
+                <a
+                  href="https://maps.app.goo.gl/FhYyMtJSmLPWyrv79"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-4 bg-transparent rounded-lg border-2 border-[#2e7d32] hover:bg-[#2e7d32]/5 hover:shadow-md transition-all duration-300 group"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#2e7d32]/10 rounded-full flex items-center justify-center group-hover:bg-[#2e7d32] transition-colors duration-300">
+                      <MapPinIcon className="h-6 w-6 text-[#2e7d32] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-gray-900 transition-colors duration-300">
+                      View on Google Maps
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Click to get directions
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <svg className="w-5 h-5 text-gray-400 group-hover:text-[#2e7d32] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
           <form onSubmit={handleSubmit} className="px-6 pb-10 pt-10 sm:pb-16 lg:px-8 lg:py-20">
