@@ -5,17 +5,17 @@ import Image from 'next/image'
 const rectangularPolyBagTypes = [
   {
     name: 'Small Size',
-    image: '/products/rectangular-poly-bag-bw/main.png',
+    image: '/products/rectangular-poly-bag-bw/main.jpg',
     description: 'Small rectangular B/W poly bags for nursery plants'
   },
   {
     name: 'Medium Size',
-    image: '/products/rectangular-poly-bag-bw/main.png',
+    image: '/products/rectangular-poly-bag-bw/main.jpg',
     description: 'Medium-sized bags for general growing applications'
   },
   {
     name: 'Large Size',
-    image: '/products/rectangular-poly-bag-bw/main.png',
+    image: '/products/rectangular-poly-bag-bw/main.jpg',
     description: 'Large rectangular bags for commercial plant production'
   },
 ]

@@ -5,17 +5,17 @@ import Image from 'next/image'
 const azollaBedTypes = [
   {
     name: 'Standard Size',
-    image: '/products/azolla-beds/main.png',
+    image: '/products/azolla-beds/main.jpg',
     description: 'Standard beds for small-scale azolla cultivation'
   },
   {
     name: 'Medium Size',
-    image: '/products/azolla-beds/main.png',
+    image: '/products/azolla-beds/main.jpg',
     description: 'Medium-sized beds for regular bio-fertilizer production'
   },
   {
     name: 'Large Size',
-    image: '/products/azolla-beds/main.png',
+    image: '/products/azolla-beds/main.jpg',
     description: 'Large capacity beds for commercial azolla farming'
   },
 ]

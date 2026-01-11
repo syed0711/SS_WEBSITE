@@ -58,9 +58,9 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pt-14 lg:px-8 lg:pt-16">
+      <div className="mx-auto max-w-7xl px-6 pb-6 pt-6 sm:pt-6 lg:px-8 lg:pt-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
+          <div className="space-y-3">
             <Link href="/" className="text-2xl font-bold text-[#2e7d32]">
               S & S AGENCIES
             </Link>
@@ -76,12 +76,12 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
             {/* Column 1: Products + Services */}
-            <div className="space-y-10">
+            <div className="space-y-4">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">Products</h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul role="list" className="mt-2 space-y-2">
                   {navigation.products.map((item) => (
                     <li key={item.name}>
                       <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-[#2e7d32]">
@@ -93,7 +93,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">Services</h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul role="list" className="mt-2 space-y-2">
                   {navigation.services.map((item) => (
                     <li key={item.name}>
                       <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-[#2e7d32]">
@@ -108,7 +108,7 @@ export default function Footer() {
             {/* Column 2: Company */}
             <div>
               <h3 className="text-sm font-semibold leading-6 text-gray-900">Company</h3>
-              <ul role="list" className="mt-6 space-y-4">
+              <ul role="list" className="mt-2 space-y-2">
                 {navigation.company.map((item) => (
                   <li key={item.name}>
                     <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-[#2e7d32]">
@@ -120,7 +120,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-14">
+        <div className="mt-6 border-t border-gray-900/10 pt-4 sm:mt-6 lg:mt-6">
           <p className="text-xs leading-5 text-gray-500">&copy; 2024 S & S AGENCIES. All rights reserved.</p>
         </div>
       </div>

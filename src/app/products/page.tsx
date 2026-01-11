@@ -12,28 +12,28 @@ const products = [
     description: 'High-quality shade nets for various agricultural applications',
     href: '/products/shade-nets',
     categories: ['35% Shade', '50% Shade', '75% Shade', '90% Shade'],
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
   },
   {
     name: 'Mulch Films',
     description: 'Premium mulch films for better crop yield and weed control',
     href: '/products/mulch-films',
     categories: ['Black Mulch', 'Silver Mulch', 'Transparent Mulch'],
-    image: '/products/mulchfilms/main.png',
+    image: '/products/mulch-films/main.png',
   },
   {
     name: 'Greenhouse Accessories',
     description: 'Essential accessories for greenhouse construction and maintenance',
     href: '/products/greenhouse-accessories',
     categories: ['Clips', 'Springs', 'Profiles', 'Fasteners'],
-    image: '/products/Greenhouse/greenhouseaccessories.png',
+    image: '/products/greenhouse-accessories/main.png',
   },
   {
     name: 'Pond Liners',
     description: 'Durable pond liners for water storage and management',
     href: '/products/pond-liners',
     categories: ['HDPE Liners', 'LDPE Liners', 'Geomembranes'],
-    image: '/products/pondliner/pondliner.png',
+    image: '/products/pond-liners/main.png',
   },
   {
     name: 'Banana Bunch Cover',
@@ -117,21 +117,21 @@ const products = [
     description: 'Efficient axial fans for greenhouse ventilation and air circulation',
     href: '/products/axial-fan',
     categories: ['Small Capacity', 'Medium Capacity', 'Large Capacity'],
-    image: '/products/axial-fan/main.png',
+    image: '/products/axial-fan/main.jpg',
   },
   {
     name: 'Industrial Exhaust Fan',
     description: 'Heavy-duty exhaust fans for large-scale agricultural and industrial use',
     href: '/products/industrial-exhaust-fan',
     categories: ['Standard Duty', 'Heavy Duty', 'High Capacity'],
-    image: '/products/industrial-exhaust-fan/main.png',
+    image: '/products/industrial-exhaust-fan/main.jpg',
   },
   {
     name: 'Honey-comb Cooling Pad',
     description: 'Evaporative cooling pads for efficient greenhouse temperature control',
     href: '/products/honey-comb-cooling-pad',
     categories: ['Standard Thickness', 'Premium Quality', 'Heavy Duty'],
-    image: '/products/honey-comb-cooling-pad/main.png',
+    image: '/products/honey-comb-cooling-pad/main.jpg',
   },
   {
     name: 'Fogger',
@@ -187,7 +187,7 @@ const products = [
     description: 'Multi-cell seedling trays for efficient seed germination and propagation',
     href: '/products/seedling-tray',
     categories: ['50 Cell', '72 Cell', '128 Cell'],
-    image: '/products/seedling-tray/main.png',
+    image: '/products/seedling-tray/main.jpg',
   },
   {
     name: 'Bio-degradable Mulch Film',
@@ -236,7 +236,7 @@ const products = [
     description: 'Purpose-built beds for azolla cultivation and bio-fertilizer production',
     href: '/products/azolla-beds',
     categories: ['Standard Size', 'Medium Size', 'Large Size'],
-    image: '/products/azolla-beds/main.png',
+    image: '/products/azolla-beds/main.jpg',
   },
   {
     name: 'Plastic Pots',
@@ -250,7 +250,7 @@ const products = [
     description: 'Rectangular black and white poly bags for specialized growing applications',
     href: '/products/rectangular-poly-bag-bw',
     categories: ['Small Size', 'Medium Size', 'Large Size'],
-    image: '/products/rectangular-poly-bag-bw/main.png',
+    image: '/products/rectangular-poly-bag-bw/main.jpg',
   },
   {
     name: 'Anti Hail Net',
@@ -335,46 +335,45 @@ export default function Products() {
 
         {/* Products Grid Section */}
         <div className="w-full px-8">
-          <div className="mx-auto mt-8 max-w-7xl grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-2">
+          <div className="mx-auto mt-8 max-w-7xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <article key={product.name} className="flex flex-col items-start">
-                <div className="w-full">
-                  <div className="relative w-full">
-                    <Image 
-                      src={product.image}
-                      alt={product.name}
-                      width={640}
-                      height={360}
-                      className="h-64 w-full object-cover rounded-2xl"
-                    />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+              <article
+                key={product.name}
+                className="relative p-8 bg-white rounded-2xl shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32] flex flex-col h-full"
+              >
+                <div className="relative w-full">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={640}
+                    height={360}
+                    className="h-64 w-full object-cover rounded-2xl"
+                  />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                </div>
+                <div className="relative">
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900">
+                    {product.name}
+                  </h3>
+                  <p className="mt-5 text-sm leading-6 text-gray-600">{product.description}</p>
+                </div>
+                <div className="mt-auto">
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {product.categories.map((category) => (
+                      <span
+                        key={category}
+                        className="inline-flex items-center rounded-md bg-[#2e7d32]/10 px-2 py-1 text-xs font-medium text-[#2e7d32]"
+                      >
+                        {category}
+                      </span>
+                    ))}
                   </div>
-                  <div className="max-w-xl">
-                    <div className="mt-8 flex items-center gap-x-4 text-xs">
-                      <time dateTime="2024" className="text-gray-500">
-                        Available Now
-                      </time>
-                    </div>
-                    <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-[#2e7d32]">
-                        <Link href={product.href}>
-                          <span className="absolute inset-0" />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">{product.description}</p>
-                    </div>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {product.categories.map((category) => (
-                        <span
-                          key={category}
-                          className="inline-flex items-center rounded-md bg-[#2e7d32]/10 px-2 py-1 text-xs font-medium text-[#2e7d32]"
-                        >
-                          {category}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <Link
+                    href={product.href}
+                    className="mt-6 block w-full rounded-md bg-[#2e7d32] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#256325] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
+                  >
+                    View Details
+                  </Link>
                 </div>
               </article>
             ))}

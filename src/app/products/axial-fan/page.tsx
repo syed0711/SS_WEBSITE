@@ -5,17 +5,17 @@ import Image from 'next/image'
 const axialFanTypes = [
   {
     name: 'Small Capacity',
-    image: '/products/axial-fan/main.png',
+    image: '/products/axial-fan/main.jpg',
     description: 'Compact axial fans for small to medium greenhouse spaces'
   },
   {
     name: 'Medium Capacity',
-    image: '/products/axial-fan/main.png',
+    image: '/products/axial-fan/main.jpg',
     description: 'Medium capacity fans for optimal air circulation'
   },
   {
     name: 'Large Capacity',
-    image: '/products/axial-fan/main.png',
+    image: '/products/axial-fan/main.jpg',
     description: 'High-capacity fans for large commercial greenhouses'
   },
 ]

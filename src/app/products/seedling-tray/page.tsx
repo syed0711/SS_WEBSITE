@@ -5,17 +5,17 @@ import Image from 'next/image'
 const seedlingTrayTypes = [
   {
     name: '50 Cell',
-    image: '/products/seedling-tray/main.png',
+    image: '/products/seedling-tray/main.jpg',
     description: '50-cell trays for larger seedlings and transplant production'
   },
   {
     name: '72 Cell',
-    image: '/products/seedling-tray/main.png',
+    image: '/products/seedling-tray/main.jpg',
     description: '72-cell trays for medium-sized seedling propagation'
   },
   {
     name: '128 Cell',
-    image: '/products/seedling-tray/main.png',
+    image: '/products/seedling-tray/main.jpg',
     description: '128-cell trays for high-density seed germination'
   },
 ]
