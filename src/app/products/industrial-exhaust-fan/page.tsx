@@ -5,17 +5,17 @@ import Image from 'next/image'
 const industrialExhaustFanTypes = [
   {
     name: 'Standard Duty',
-    image: '/products/industrial-exhaust-fan/main.png',
+    image: '/products/industrial-exhaust-fan/main.jpg',
     description: 'Standard industrial exhaust fans for general applications'
   },
   {
     name: 'Heavy Duty',
-    image: '/products/industrial-exhaust-fan/main.png',
+    image: '/products/industrial-exhaust-fan/main.jpg',
     description: 'Heavy-duty fans for continuous operation in demanding environments'
   },
   {
     name: 'High Capacity',
-    image: '/products/industrial-exhaust-fan/main.png',
+    image: '/products/industrial-exhaust-fan/main.jpg',
     description: 'High-capacity exhaust systems for large-scale facilities'
   },
 ]

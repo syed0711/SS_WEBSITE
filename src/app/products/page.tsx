@@ -1,6 +1,10 @@
+"use client";
+
 import Navbar from '@/components/layout/Navbar'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 
 const products = [
   {
@@ -8,28 +12,28 @@ const products = [
     description: 'High-quality shade nets for various agricultural applications',
     href: '/products/shade-nets',
     categories: ['35% Shade', '50% Shade', '75% Shade', '90% Shade'],
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
   },
   {
     name: 'Mulch Films',
     description: 'Premium mulch films for better crop yield and weed control',
     href: '/products/mulch-films',
     categories: ['Black Mulch', 'Silver Mulch', 'Transparent Mulch'],
-    image: '/products/mulchfilms/main.png',
+    image: '/products/mulch-films/main.png',
   },
   {
     name: 'Greenhouse Accessories',
     description: 'Essential accessories for greenhouse construction and maintenance',
     href: '/products/greenhouse-accessories',
     categories: ['Clips', 'Springs', 'Profiles', 'Fasteners'],
-    image: '/products/Greenhouse/greenhouseaccessories.png',
+    image: '/products/greenhouse-accessories/main.png',
   },
   {
     name: 'Pond Liners',
     description: 'Durable pond liners for water storage and management',
     href: '/products/pond-liners',
     categories: ['HDPE Liners', 'LDPE Liners', 'Geomembranes'],
-    image: '/products/pondliner/pondliner.png',
+    image: '/products/pond-liners/main.png',
   },
   {
     name: 'Banana Bunch Cover',
@@ -113,21 +117,21 @@ const products = [
     description: 'Efficient axial fans for greenhouse ventilation and air circulation',
     href: '/products/axial-fan',
     categories: ['Small Capacity', 'Medium Capacity', 'Large Capacity'],
-    image: '/products/axial-fan/main.png',
+    image: '/products/axial-fan/main.jpg',
   },
   {
     name: 'Industrial Exhaust Fan',
     description: 'Heavy-duty exhaust fans for large-scale agricultural and industrial use',
     href: '/products/industrial-exhaust-fan',
     categories: ['Standard Duty', 'Heavy Duty', 'High Capacity'],
-    image: '/products/industrial-exhaust-fan/main.png',
+    image: '/products/industrial-exhaust-fan/main.jpg',
   },
   {
     name: 'Honey-comb Cooling Pad',
     description: 'Evaporative cooling pads for efficient greenhouse temperature control',
     href: '/products/honey-comb-cooling-pad',
     categories: ['Standard Thickness', 'Premium Quality', 'Heavy Duty'],
-    image: '/products/honey-comb-cooling-pad/main.png',
+    image: '/products/honey-comb-cooling-pad/main.jpg',
   },
   {
     name: 'Fogger',
@@ -183,7 +187,7 @@ const products = [
     description: 'Multi-cell seedling trays for efficient seed germination and propagation',
     href: '/products/seedling-tray',
     categories: ['50 Cell', '72 Cell', '128 Cell'],
-    image: '/products/seedling-tray/main.png',
+    image: '/products/seedling-tray/main.jpg',
   },
   {
     name: 'Bio-degradable Mulch Film',
@@ -232,7 +236,7 @@ const products = [
     description: 'Purpose-built beds for azolla cultivation and bio-fertilizer production',
     href: '/products/azolla-beds',
     categories: ['Standard Size', 'Medium Size', 'Large Size'],
-    image: '/products/azolla-beds/main.png',
+    image: '/products/azolla-beds/main.jpg',
   },
   {
     name: 'Plastic Pots',
@@ -246,7 +250,7 @@ const products = [
     description: 'Rectangular black and white poly bags for specialized growing applications',
     href: '/products/rectangular-poly-bag-bw',
     categories: ['Small Size', 'Medium Size', 'Large Size'],
-    image: '/products/rectangular-poly-bag-bw/main.png',
+    image: '/products/rectangular-poly-bag-bw/main.jpg',
   },
   {
     name: 'Anti Hail Net',
@@ -257,58 +261,119 @@ const products = [
   },
 ]
 
+// Featured products for the showcase section
+const featuredProducts = [
+  'Shade Nets',
+  'Mulch Films',
+  'Greenhouse Accessories',
+  'Pond Liners',
+  'Insect Proof Net',
+  'HDPE Grow Bags',
+  'Dripper',
+  'Fogger',
+  'Hydroponics Tray',
+]
+
 export default function Products() {
+  const handleDownloadBrochure = () => {
+    // Add download logic here
+    console.log('Downloading brochure...')
+  }
+
   return (
     <div>
       <Navbar />
-      <div className="bg-white py-6 sm:py-8">
-        <div className="w-full px-4">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Browse our complete range of agricultural solutions
-            </p>
+      {/* Product Showcase Section */}
+      <div className="bg-white py-8 pb-16">
+        <div className="w-full px-8 overflow-visible">
+          <div className="mx-auto max-w-full rounded-3xl ring-1 ring-gray-200 shadow-[0_0_30px_-3px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_-3px_rgba(0,0,0,0.2)] transition-shadow duration-300 lg:mx-0 lg:flex lg:max-w-none bg-white isolate">
+            <div className="p-6 sm:p-8 lg:flex-auto">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900">Our Product Range</h3>
+              <p className="mt-4 text-base leading-7 text-gray-600">
+                We offer a comprehensive selection of high-quality agricultural products designed to enhance
+                productivity and efficiency in modern farming operations. Browse our complete catalogue below.
+              </p>
+              <div className="mt-6 flex items-center gap-x-4">
+                <h4 className="flex-none text-sm font-semibold leading-6 text-[#2e7d32]">Featured Products</h4>
+                <div className="h-px flex-auto bg-gray-100" />
+              </div>
+              <ul role="list" className="mt-6 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+                {featuredProducts.map((product) => (
+                  <li key={product} className="flex gap-x-3">
+                    <CheckCircleIcon className="h-6 w-5 flex-none text-[#2e7d32]" aria-hidden="true" />
+                    {product}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="-mt-2 p-2 lg:mt-0 lg:flex-shrink-0 lg:flex lg:flex-[0_0_40%]">
+              <div className="rounded-2xl bg-gradient-to-br from-[#e8f5e9] to-[#fff3e0] py-6 text-center ring-1 ring-inset ring-gray-900/5 h-full flex flex-col justify-center lg:py-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32] cursor-pointer">
+                <div className="mx-auto px-6 sm:px-8 lg:px-10 w-full">
+                  <p className="text-base font-semibold text-gray-700">Explore Our Catalog</p>
+                  <p className="mt-4 flex items-baseline justify-center gap-x-2">
+                    <span className="text-5xl font-bold tracking-tight text-gray-900">35+</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">premium products</span>
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-gray-600 px-2">
+                    Download our comprehensive product brochure with detailed specifications and pricing
+                  </p>
+                  <button
+                    onClick={handleDownloadBrochure}
+                    className="mt-6 block w-full rounded-lg bg-[#2e7d32] px-6 py-3 text-center text-base font-semibold text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32] flex items-center justify-center gap-2"
+                  >
+                    <ArrowDownTrayIcon className="h-5 w-5" />
+                    Download Brochure
+                  </button>
+                  <p className="mt-4 text-xs leading-5 text-gray-500">
+                    Complete catalog • Technical specs • Pricing details
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        </div>
+
+        {/* Products Grid Section */}
+        <div className="w-full px-8">
+          <div className="mx-auto mt-8 max-w-7xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <article key={product.name} className="flex flex-col items-start">
-                <div className="w-full">
-                  <div className="relative w-full">
-                    <Image 
-                      src={product.image}
-                      alt={product.name}
-                      width={640}
-                      height={360}
-                      className="h-64 w-full object-cover rounded-2xl"
-                    />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+              <article
+                key={product.name}
+                className="relative p-8 bg-white rounded-2xl shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32] flex flex-col h-full"
+              >
+                <div className="relative w-full">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={640}
+                    height={360}
+                    className="h-64 w-full object-cover rounded-2xl"
+                  />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                </div>
+                <div className="relative">
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900">
+                    {product.name}
+                  </h3>
+                  <p className="mt-5 text-sm leading-6 text-gray-600">{product.description}</p>
+                </div>
+                <div className="mt-auto">
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {product.categories.map((category) => (
+                      <span
+                        key={category}
+                        className="inline-flex items-center rounded-md bg-[#2e7d32]/10 px-2 py-1 text-xs font-medium text-[#2e7d32]"
+                      >
+                        {category}
+                      </span>
+                    ))}
                   </div>
-                  <div className="max-w-xl">
-                    <div className="mt-8 flex items-center gap-x-4 text-xs">
-                      <time dateTime="2024" className="text-gray-500">
-                        Available Now
-                      </time>
-                    </div>
-                    <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-[#2e7d32]">
-                        <Link href={product.href}>
-                          <span className="absolute inset-0" />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">{product.description}</p>
-                    </div>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {product.categories.map((category) => (
-                        <span
-                          key={category}
-                          className="inline-flex items-center rounded-md bg-[#2e7d32]/10 px-2 py-1 text-xs font-medium text-[#2e7d32]"
-                        >
-                          {category}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <Link
+                    href={product.href}
+                    className="mt-6 block w-full rounded-md bg-[#2e7d32] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#256325] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
+                  >
+                    View Details
+                  </Link>
                 </div>
               </article>
             ))}

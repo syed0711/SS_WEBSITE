@@ -5,17 +5,17 @@ import Image from 'next/image'
 const coolingPadTypes = [
   {
     name: 'Standard Thickness',
-    image: '/products/honey-comb-cooling-pad/main.png',
+    image: '/products/honey-comb-cooling-pad/main.jpg',
     description: 'Standard thickness cooling pads for regular greenhouse cooling'
   },
   {
     name: 'Premium Quality',
-    image: '/products/honey-comb-cooling-pad/main.png',
+    image: '/products/honey-comb-cooling-pad/main.jpg',
     description: 'Premium quality pads with enhanced cooling efficiency'
   },
   {
     name: 'Heavy Duty',
-    image: '/products/honey-comb-cooling-pad/main.png',
+    image: '/products/honey-comb-cooling-pad/main.jpg',
     description: 'Heavy-duty pads for intensive cooling requirements'
   },
 ]

@@ -5,17 +5,17 @@ import Image from 'next/image'
 const mulchFilmTypes = [
   {
     name: 'Black Mulch',
-    image: '/products/mulchfilms/main.png',
+    image: '/products/mulch-films/main.png',
     description: 'Controls weed growth and maintains soil moisture. Perfect for most crops.'
   },
   {
     name: 'Silver Mulch',
-    image: '/products/mulchfilms/main.png',
+    image: '/products/mulch-films/main.png',
     description: 'Reflects light to improve plant growth and repels insects naturally.'
   },
   {
     name: 'Transparent Mulch',
-    image: '/products/mulchfilms/main.png',
+    image: '/products/mulch-films/main.png',
     description: 'Allows light penetration while protecting soil and conserving moisture.'
   },
 ]

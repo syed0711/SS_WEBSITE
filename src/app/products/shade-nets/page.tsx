@@ -5,22 +5,22 @@ import Image from 'next/image'
 const shadeNetTypes = [
   {
     name: '35% Shade',
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
     description: 'Light protection, ideal for nurseries and delicate plants'
   },
   {
     name: '50% Shade',
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
     description: 'Balanced protection for most agricultural applications'
   },
   {
     name: '75% Shade',
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
     description: 'High protection for sensitive crops and extreme climates'
   },
   {
     name: '90% Shade',
-    image: '/products/shadenets/main.png',
+    image: '/products/shade-nets/main.png',
     description: 'Maximum protection for very sensitive plants and storage'
   },
 ]
