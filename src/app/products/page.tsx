@@ -319,7 +319,7 @@ export default function Products() {
                   </p>
                   <button
                     onClick={handleDownloadBrochure}
-                    className="mt-6 block w-full rounded-lg bg-[#2e7d32] px-6 py-3 text-center text-base font-semibold text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32] flex items-center justify-center gap-2"
+                    className="mt-6 w-full rounded-lg bg-[#2e7d32] px-6 py-3 text-center text-base font-semibold text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32] flex items-center justify-center gap-2"
                   >
                     <ArrowDownTrayIcon className="h-5 w-5" />
                     Download Brochure
