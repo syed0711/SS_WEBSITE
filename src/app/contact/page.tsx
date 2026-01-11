@@ -149,7 +149,7 @@ export default function Contact() {
             </div>
           </div>
           <form onSubmit={handleSubmit} className="px-6 pb-10 pt-10 sm:pb-16 lg:px-8 lg:py-20">
-            <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-xl">
               <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
