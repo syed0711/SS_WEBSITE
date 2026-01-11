@@ -32,8 +32,8 @@ export default function About() {
     <div>
       <Navbar />
       <main className="relative isolate bg-white">
-        {/* Header section with green accent border and icon */}
-        <div className="px-6 pt-6 lg:px-8 border-b-4 border-[#2e7d32] bg-white">
+        {/* Header section with icon */}
+        <div className="px-6 pt-6 lg:px-8 bg-white">
           <div className="mx-auto max-w-2xl pt-6 text-center sm:pt-8">
             <div className="flex items-center justify-center gap-2">
               <svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10 text-green-700' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' /></svg>
