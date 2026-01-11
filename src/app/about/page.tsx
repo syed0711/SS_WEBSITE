@@ -33,20 +33,41 @@ export default function About() {
       <Navbar />
       <main className="relative isolate bg-white">
         {/* Header section with icon */}
-        <div className="px-6 pt-6 lg:px-8 bg-white">
-          <div className="mx-auto max-w-2xl pt-6 text-center sm:pt-8">
-            <div className="flex items-center justify-center gap-2">
-              <svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10 text-green-700' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' /></svg>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">About Us</h2>
+        <div className="px-6 pt-6 lg:px-8">
+          <div className="mx-auto max-w-7xl bg-gradient-to-br from-green-100 via-white to-emerald-100 rounded-xl px-8 py-10 shadow-none hover:shadow-[0_0_40px_rgba(0,0,0,0.15)] transition-shadow duration-300 relative overflow-hidden">
+            {/* Decorative leaf icons */}
+            <div className="absolute top-4 left-4 opacity-15">
+              <svg className="h-16 w-16 text-green-700" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+              </svg>
             </div>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
-              10+ years of excellence in protected cultivation solutions, serving farmers and agricultural businesses across India.
-            </p>
+            <div className="absolute bottom-4 right-4 opacity-15">
+              <svg className="h-16 w-16 text-green-700" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+              </svg>
+            </div>
+
+            <div className="mx-auto max-w-2xl text-center relative z-10">
+              <div className="flex items-center justify-center gap-2">
+                <svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10 text-green-700' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' /></svg>
+                <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">About Us</h2>
+              </div>
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-green-700"></div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-200 text-green-900">
+                  Est. 2014
+                </span>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-green-700"></div>
+              </div>
+              <p className="mt-4 text-lg leading-8 text-gray-600">
+                10+ years of excellence in protected cultivation solutions, serving farmers and agricultural businesses across India.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Content section */}
-        <div className="mx-auto mt-10 max-w-7xl px-6 lg:px-8 bg-white rounded-xl shadow-md">
+        <div className="mx-auto mt-8 max-w-7xl px-6 py-8 lg:px-8 bg-white rounded-xl shadow-none hover:shadow-[0_0_40px_rgba(0,0,0,0.15)] transition-shadow duration-300">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2">
               <div>
@@ -77,14 +98,14 @@ export default function About() {
         </div>
 
         {/* Stats section */}
-        <div className="mx-auto mt-14 max-w-7xl px-6 bg-green-50 rounded-xl shadow-sm">
+        <div className="mx-auto mt-8 max-w-7xl px-8 py-10 lg:px-10 lg:py-12 bg-green-50 rounded-xl shadow-sm">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-green-900 sm:text-4xl">Our impact by the numbers</h2>
             <p className="mt-4 text-base leading-7 text-green-800">
               We take pride in our contributions to Indian agriculture and the trust our customers place in us.
             </p>
           </div>
-          <div className="mx-auto mt-10 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-14 lg:max-w-none lg:flex-row lg:items-end">
+          <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-10 lg:max-w-none lg:flex-row lg:items-end">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col-reverse gap-y-2 bg-white rounded-lg shadow p-6 items-center w-full">
                 <dt className="text-base leading-7 text-green-700">{stat.label}</dt>
@@ -95,7 +116,7 @@ export default function About() {
         </div>
 
         {/* Values section */}
-        <div className="mx-auto mt-14 max-w-7xl px-6 bg-white rounded-xl shadow-md">
+        <div className="mx-auto mt-8 max-w-7xl px-8 py-10 lg:px-10 lg:py-12 bg-white rounded-xl shadow-none hover:shadow-[0_0_40px_rgba(0,0,0,0.15)] transition-shadow duration-300">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our values</h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
