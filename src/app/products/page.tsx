@@ -1,6 +1,10 @@
+"use client";
+
 import Navbar from '@/components/layout/Navbar'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 
 const products = [
   {
@@ -257,19 +261,81 @@ const products = [
   },
 ]
 
+// Featured products for the showcase section
+const featuredProducts = [
+  'Shade Nets',
+  'Mulch Films',
+  'Greenhouse Accessories',
+  'Pond Liners',
+  'Insect Proof Net',
+  'HDPE Grow Bags',
+  'Dripper',
+  'Fogger',
+  'Hydroponics Tray',
+]
+
 export default function Products() {
+  const handleDownloadBrochure = () => {
+    // Add download logic here
+    console.log('Downloading brochure...')
+  }
+
   return (
     <div>
       <Navbar />
-      <div className="bg-white py-6 sm:py-8">
-        <div className="w-full px-4">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Browse our complete range of agricultural solutions
-            </p>
+      {/* Product Showcase Section */}
+      <div className="bg-white py-8 pb-16">
+        <div className="w-full px-8 overflow-visible">
+          <div className="mx-auto max-w-full rounded-3xl ring-1 ring-gray-200 shadow-[0_0_30px_-3px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_-3px_rgba(0,0,0,0.2)] transition-shadow duration-300 lg:mx-0 lg:flex lg:max-w-none bg-white isolate">
+            <div className="p-6 sm:p-8 lg:flex-auto">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900">Our Product Range</h3>
+              <p className="mt-4 text-base leading-7 text-gray-600">
+                We offer a comprehensive selection of high-quality agricultural products designed to enhance
+                productivity and efficiency in modern farming operations. Browse our complete catalogue below.
+              </p>
+              <div className="mt-6 flex items-center gap-x-4">
+                <h4 className="flex-none text-sm font-semibold leading-6 text-[#2e7d32]">Featured Products</h4>
+                <div className="h-px flex-auto bg-gray-100" />
+              </div>
+              <ul role="list" className="mt-6 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+                {featuredProducts.map((product) => (
+                  <li key={product} className="flex gap-x-3">
+                    <CheckCircleIcon className="h-6 w-5 flex-none text-[#2e7d32]" aria-hidden="true" />
+                    {product}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="-mt-2 p-2 lg:mt-0 lg:flex-shrink-0 lg:flex lg:flex-[0_0_40%]">
+              <div className="rounded-2xl bg-gradient-to-br from-[#e8f5e9] to-[#fff3e0] py-6 text-center ring-1 ring-inset ring-gray-900/5 h-full flex flex-col justify-center lg:py-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32] cursor-pointer">
+                <div className="mx-auto px-6 sm:px-8 lg:px-10 w-full">
+                  <p className="text-base font-semibold text-gray-700">Explore Our Catalog</p>
+                  <p className="mt-4 flex items-baseline justify-center gap-x-2">
+                    <span className="text-5xl font-bold tracking-tight text-gray-900">35+</span>
+                    <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">premium products</span>
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-gray-600 px-2">
+                    Download our comprehensive product brochure with detailed specifications and pricing
+                  </p>
+                  <button
+                    onClick={handleDownloadBrochure}
+                    className="mt-6 block w-full rounded-lg bg-[#2e7d32] px-6 py-3 text-center text-base font-semibold text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32] flex items-center justify-center gap-2"
+                  >
+                    <ArrowDownTrayIcon className="h-5 w-5" />
+                    Download Brochure
+                  </button>
+                  <p className="mt-4 text-xs leading-5 text-gray-500">
+                    Complete catalog • Technical specs • Pricing details
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        </div>
+
+        {/* Products Grid Section */}
+        <div className="w-full px-8">
+          <div className="mx-auto mt-8 max-w-7xl grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-2">
             {products.map((product) => (
               <article key={product.name} className="flex flex-col items-start">
                 <div className="w-full">

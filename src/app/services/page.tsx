@@ -127,17 +127,17 @@ export default function Services() {
       <div className="bg-white py-8">
         <div className="w-full px-8 overflow-visible">
           <div className="mx-auto max-w-full rounded-3xl ring-1 ring-gray-200 shadow-[0_0_30px_-3px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_-3px_rgba(0,0,0,0.2)] transition-shadow duration-300 lg:mx-0 lg:flex lg:max-w-none bg-white isolate">
-            <div className="p-8 sm:p-10 lg:flex-auto">
+            <div className="p-6 sm:p-8 lg:flex-auto">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900">Professional Services</h3>
-              <p className="mt-6 text-base leading-7 text-gray-600">
+              <p className="mt-4 text-base leading-7 text-gray-600">
                 Our team of experts provides end-to-end solutions for your agricultural needs. From design to implementation,
-                we ensure the success of your farming projects.
+                we ensure the success of your farming projects. Explore our complete service offerings below.
               </p>
-              <div className="mt-10 flex items-center gap-x-4">
+              <div className="mt-6 flex items-center gap-x-4">
                 <h4 className="flex-none text-sm font-semibold leading-6 text-[#2e7d32]">What's included</h4>
                 <div className="h-px flex-auto bg-gray-100" />
               </div>
-              <ul role="list" className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+              <ul role="list" className="mt-6 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
                 {services.map((service) => (
                   <li key={service.id} className="flex gap-x-3">
                     <CheckCircleIcon className="h-6 w-5 flex-none text-[#2e7d32]" aria-hidden="true" />
@@ -147,21 +147,24 @@ export default function Services() {
               </ul>
             </div>
             <div className="-mt-2 p-2 lg:mt-0 lg:flex-shrink-0 lg:flex lg:flex-[0_0_40%]">
-              <div className="rounded-2xl bg-gray-50 py-8 text-center ring-1 ring-inset ring-gray-900/5 h-full flex flex-col justify-center lg:py-10">
-                <div className="mx-auto px-4 sm:px-8 lg:px-28">
-                  <p className="text-base font-semibold text-gray-600">Get Started Today</p>
-                  <p className="mt-6 flex items-baseline justify-center gap-x-2">
+              <div className="rounded-2xl bg-gradient-to-br from-[#e8f5e9] to-[#fff3e0] py-6 text-center ring-1 ring-inset ring-gray-900/5 h-full flex flex-col justify-center lg:py-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32] cursor-pointer">
+                <div className="mx-auto px-6 sm:px-8 lg:px-10 w-full">
+                  <p className="text-base font-semibold text-gray-700">Get Started Today</p>
+                  <p className="mt-4 flex items-baseline justify-center gap-x-2">
                     <span className="text-5xl font-bold tracking-tight text-gray-900">10+</span>
                     <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">years experience</span>
                   </p>
+                  <p className="mt-4 text-sm leading-6 text-gray-600 px-2">
+                    Professional consultation to understand your needs and provide tailored solutions
+                  </p>
                   <button
                     onClick={() => setModalOpen(true)}
-                    className="mt-10 block w-full rounded-md bg-[#2e7d32] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#1b5e20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
+                    className="mt-6 block w-full rounded-lg bg-[#2e7d32] px-6 py-3 text-center text-base font-semibold text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e7d32]"
                   >
                     Book a Consultation
                   </button>
-                  <p className="mt-6 text-xs leading-5 text-gray-600">
-                    Professional consultation to understand your needs
+                  <p className="mt-4 text-xs leading-5 text-gray-500">
+                    Free consultation • Expert guidance • Custom solutions
                   </p>
                 </div>
               </div>
@@ -170,7 +173,7 @@ export default function Services() {
           <div className="mx-auto mt-8 max-w-7xl">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
-                <div key={service.id} className="relative p-8 bg-white rounded-2xl shadow-sm ring-1 ring-gray-200">
+                <div key={service.id} className="relative p-8 bg-white rounded-2xl shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-[#2e7d32]">
                   <h3 className="text-xl font-semibold text-gray-900">{service.name}</h3>
                   <p className="mt-4 text-sm text-gray-600">{service.description}</p>
                   <ul role="list" className="mt-6 space-y-4">
